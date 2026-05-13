@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-+i+yq)x727(@_+_hml5)f1sjfm%=s!=&j1otmv(uun8qa5dg*-
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://ecommerce-book-88ak.onrender.com/'
+    'ecommerce-book-88ak.onrender.com',
+    '127.0.0.1',
+    'localhost'
 ]
 
 
@@ -44,9 +46,11 @@ INSTALLED_APPS = [
     'contacts',
     'medias',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +59,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+   
+     "http://localhost:3000",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'infos.urls'
 
